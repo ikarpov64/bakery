@@ -1,4 +1,4 @@
-package org.example;
+package org.example.bakery;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

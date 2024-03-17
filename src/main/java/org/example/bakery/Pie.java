@@ -1,7 +1,7 @@
-package org.example;
+package org.example.bakery;
 
 import lombok.RequiredArgsConstructor;
-import org.example.ingredients.*;
+import org.example.bakery.ingredients.*;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 

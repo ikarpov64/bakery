@@ -1,4 +1,4 @@
-package org.example;
+package org.example.bakery;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

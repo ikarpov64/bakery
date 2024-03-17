@@ -1,4 +1,4 @@
-package org.example.ingredients;
+package org.example.bakery.ingredients;
 
 import org.springframework.stereotype.Component;
 

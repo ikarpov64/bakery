@@ -1,11 +1,10 @@
-package org.example.ingredients;
+package org.example.bakery.ingredients;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class Flour {
+public class Egg {
     public String getName() {
-        return "Мука";
+        return "Яйцо";
     }
 }
-
