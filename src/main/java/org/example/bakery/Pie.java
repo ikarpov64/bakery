@@ -2,6 +2,8 @@ package org.example.bakery;
 
 import lombok.RequiredArgsConstructor;
 import org.example.bakery.ingredients.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
@@ -11,23 +13,36 @@ import org.springframework.stereotype.Component;
  * контейнером Spring.
  */
 @Component
-@RequiredArgsConstructor
-@Lazy
+//@RequiredArgsConstructor
+//@Lazy
 public class Pie {
     // Зависимости типов Flour, Egg, Butter, Sugar, Berry, используемые для выпечки пирога.
     private final Flour flour;
     private final Egg egg;
     private final Butter butter;
     private final Sugar sugar;
-    private final Berry berry;
+    private final Berry cherry;
+    private final Berry blueberry;
+
+    @Autowired
+    public Pie(Flour flour, Egg egg, Butter butter, Sugar sugar,
+               @Qualifier("cherry") Berry cherry, @Qualifier("blueberry") Berry blueberry) {
+        this.flour = flour;
+        this.egg = egg;
+        this.butter = butter;
+        this.sugar = sugar;
+        this.cherry = cherry;
+        this.blueberry = blueberry;
+    }
 
     public void prepare() {
-        System.out.printf("Подготовка к выпечке из ингредиентов: %s, %s, %s, %s, %s.\n",
+        System.out.printf("Подготовка к выпечке из ингредиентов: %s, %s, %s, %s, %s, %s.\n",
                 flour.getName(),
                 egg.getName(),
                 butter.getName(),
                 sugar.getName(),
-                berry.getName());
+                cherry.getName(),
+                blueberry.getName());
     }
 
     public void bake() {
