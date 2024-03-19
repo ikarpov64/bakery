@@ -21,12 +21,12 @@ public class Pie {
     private final Egg egg;
     private final Butter butter;
     private final Sugar sugar;
-    private final Berry cherry;
-    private final Berry blueberry;
+    private Berry cherry;
+    private Berry blueberry;
 
     @Autowired
     public Pie(Flour flour, Egg egg, Butter butter, Sugar sugar,
-               @Qualifier("cherry") Berry cherry, @Qualifier("blueberry") Berry blueberry) {
+               Berry cherry, @Qualifier("blueberry") Berry blueberry) {
         this.flour = flour;
         this.egg = egg;
         this.butter = butter;
@@ -43,6 +43,17 @@ public class Pie {
                 sugar.getName(),
                 cherry.getName(),
                 blueberry.getName());
+    }
+
+    /**
+     * Сеттер перебивает конструктор при создании Бина.
+     *
+     * @param cherry Объект вишня.
+     */
+    @Autowired
+    @Qualifier("blueberry")
+    public void setCherry(Berry cherry) {
+        this.cherry = cherry;
     }
 
     public void bake() {

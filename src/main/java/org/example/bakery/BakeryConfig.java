@@ -4,6 +4,7 @@ import org.example.bakery.ingredients.Berry;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 /**
  * Класс конфигурации для Spring Framework.
@@ -13,12 +14,13 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = "org.example")
 public class BakeryConfig {
 
-    @Bean
+    @Primary
+    @Bean(name = "cherry")
     public Berry cherry() {
         return new Berry("Вишня");
     }
 
-    @Bean
+    @Bean(name = "blueberry")
     public Berry blueberry() {
         return new Berry("Черника");
     }
