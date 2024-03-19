@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 //@RequiredArgsConstructor
-//@Lazy
+@Lazy
 public class Pie {
     // Зависимости типов Flour, Egg, Butter, Sugar, Berry, используемые для выпечки пирога.
     private final Flour flour;
@@ -54,6 +54,12 @@ public class Pie {
     @Qualifier("blueberry")
     public void setCherry(Berry cherry) {
         this.cherry = cherry;
+    }
+
+    @Autowired
+    @Qualifier("cherry")
+    public void setBlueberry(Berry blueberry) {
+        this.blueberry = blueberry;
     }
 
     public void bake() {
